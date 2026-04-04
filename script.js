@@ -181,3 +181,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardTilt();
   initPageTransitions();
 });
+
+
+document.getElementById("submit-btn").addEventListener("click", function () {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  if (!name || !email || !subject || !message) {
+    alert("Fill all fields da 😤");
+    return;
+  }
+
+  const mailtoLink = `mailto:ramachandranprajit@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+  )}`;
+
+  window.location.href = mailtoLink;
+});
